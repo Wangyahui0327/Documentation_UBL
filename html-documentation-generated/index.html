@@ -1,0 +1,2025 @@
+<!doctype html>
+<html>
+  <head>
+    <title>SENG2021 W15ALockedIn project swagger</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>SENG2021 W15ALockedIn project swagger</h1>
+    <div class="app-desc">This is our group project SENG2021 LockedIn swagger</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="apiteam@swagger.io">apiteam@swagger.io</a></div>
+    <div class="app-desc">Version: 1.0.11</div>
+    <div class="app-desc">BasePath:/wangyjoliviagmailcom/invoices/1.0.11</div>
+    <div class="license-info">Apache 2.0</div>
+    <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Invoice">Invoice</a></h4>
+  <ul>
+  <li><a href="#createInvoice"><code><span class="http-method">post</span> /user/{userId}/invoices</code></a></li>
+  <li><a href="#userUserIdInvoicesGet"><code><span class="http-method">get</span> /user/{userId}/invoices</code></a></li>
+  <li><a href="#userUserIdInvoicesInvoiceIdDelete"><code><span class="http-method">delete</span> /user/{userId}/invoices/{invoiceId}</code></a></li>
+  <li><a href="#userUserIdInvoicesInvoiceIdGet"><code><span class="http-method">get</span> /user/{userId}/invoices/{invoiceId}</code></a></li>
+  <li><a href="#userUserIdInvoicesInvoiceIdPut"><code><span class="http-method">put</span> /user/{userId}/invoices/{invoiceId}</code></a></li>
+  <li><a href="#userUserIdInvoicesInvoiceIdValidateGet"><code><span class="http-method">get</span> /user/{userId}/invoices/{invoiceId}/validate</code></a></li>
+  </ul>
+  <h4><a href="#User">User</a></h4>
+  <ul>
+  <li><a href="#createUser"><code><span class="http-method">post</span> /user</code></a></li>
+  <li><a href="#loginUser"><code><span class="http-method">post</span> /user/login</code></a></li>
+  <li><a href="#logoutUser"><code><span class="http-method">delete</span> /user/logout</code></a></li>
+  </ul>
+
+  <h1><a name="Invoice">Invoice</a></h1>
+  <div class="method"><a name="createInvoice"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /user/{userId}/invoices</code></pre></div>
+    <div class="method-summary">create invoices (<span class="nickname">createInvoice</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the user </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#userId_invoices_body">userId_invoices_body</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Parameters for creating an invoice </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Invoice">Invoice</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ProfileID" : "ProfileID",
+  "TaxTotal" : {
+    "TaxSubtotal" : { }
+  },
+  "AccountingCost" : "AccountingCost",
+  "InvoiceLine" : {
+    "Item" : {
+      "Description" : "Description"
+    },
+    "InvoicedQuantity" : {
+      "unitCode" : "unitCode",
+      "value" : 5
+    }
+  },
+  "DocumentCurrencyCode" : "DocumentCurrencyCode",
+  "AllowanceCharge" : {
+    "AllowanceChargeReasonCode" : "AllowanceChargeReasonCode",
+    "AllowanceChargeReason" : "AllowanceChargeReason",
+    "MultiplierFactorNumeric" : 0,
+    "TaxCategory" : {
+      "Percent" : 1,
+      "ID" : "ID"
+    },
+    "Amount" : {
+      "currencyID" : "currencyID",
+      "value" : 6.027456183070403
+    },
+    "ChargeIndicator" : true
+  },
+  "IssueDate" : "IssueDate",
+  "PaymentTerms" : {
+    "Note" : "Note"
+  },
+  "AccountingSupplierParty" : {
+    "Party" : {
+      "PostalAddress" : {
+        "StreetName" : "StreetName",
+        "AdditionalStreetName" : "AdditionalStreetName",
+        "Country" : {
+          "IdentificationCode" : "IdentificationCode"
+        },
+        "CityName" : "CityName",
+        "PostalZone" : "PostalZone"
+      },
+      "PartyTaxScheme" : {
+        "CompanyID" : "CompanyID"
+      },
+      "EndpointID" : {
+        "schemeID" : "schemeID",
+        "value" : "value"
+      },
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName",
+        "CompanyLegalForm" : "CompanyLegalForm"
+      },
+      "PartyName" : {
+        "Name" : "Name"
+      },
+      "PartyIdentification" : {
+        "ID" : "ID"
+      },
+      "Contact" : {
+        "Telephone" : "Telephone",
+        "ElectronicMail" : "ElectronicMail",
+        "Name" : "Name"
+      }
+    }
+  },
+  "AccountingCustomerParty" : {
+    "Party" : {
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName"
+      }
+    }
+  },
+  "CustomizationID" : "CustomizationID",
+  "LegalMonetaryTotal" : { },
+  "InvoiceTypeCode" : "InvoiceTypeCode",
+  "Note" : "Note",
+  "ID" : "ID",
+  "BuyerReference" : "BuyerReference",
+  "DueDate" : "DueDate"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response with an example invoice
+        <a href="#Invoice">Invoice</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: invoiceExample</div>
+    <pre class="example"><code>&lt;?xml version&#x3D;&#x27;1.0&#x27; encoding&#x3D;&#x27;UTF-8&#x27;?&gt;
+&lt;Invoice xmlns:cac&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot; xmlns:cbc&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot; xmlns&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;&gt;
+  &lt;cbc:CustomizationID&gt;urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0&lt;/cbc:CustomizationID&gt;
+  &lt;cbc:ProfileID&gt;urn:fdc:peppol.eu:2017:poacc:billing:01:1.0&lt;/cbc:ProfileID&gt;
+  &lt;cbc:ID&gt;Invoice01&lt;/cbc:ID&gt;
+  &lt;cbc:IssueDate&gt;2025-03-11&lt;/cbc:IssueDate&gt;
+  &lt;cbc:DueDate&gt;2025-08-30&lt;/cbc:DueDate&gt;
+  &lt;cbc:InvoiceTypeCode&gt;380&lt;/cbc:InvoiceTypeCode&gt;
+  &lt;cbc:Note&gt;Tax invoice&lt;/cbc:Note&gt;
+  &lt;cbc:DocumentCurrencyCode&gt;AUD&lt;/cbc:DocumentCurrencyCode&gt;
+  &lt;cbc:AccountingCost&gt;4025:123:4343&lt;/cbc:AccountingCost&gt;
+  &lt;cbc:BuyerReference&gt;0150abc&lt;/cbc:BuyerReference&gt;
+  &lt;cac:AccountingSupplierParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID&gt;47555222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Supplier Trading Name Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;Main street 1&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Postbox 123&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Harrison&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2912&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Supplier Official Name Ltd&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cbc:CompanyLegalForm&gt;Partnership&lt;/cbc:CompanyLegalForm&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Ronald MacDonald&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;Mobile 0430123456&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;ronald.macdonald@qualitygoods.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingSupplierParty&gt;
+  &lt;cac:AccountingCustomerParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Trotters Trading Co Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;100 Queen Street&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Po box 878&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Sydney&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2000&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;91888222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Buyer Official Name&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:CompanyID&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Lisa Johnson&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;0261234567&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;lj@buyer.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingCustomerParty&gt;
+  &lt;cac:PaymentTerms&gt;
+    &lt;cbc:Note&gt;Payment within 30 days&lt;/cbc:Note&gt;
+  &lt;/cac:PaymentTerms&gt;
+  &lt;cac:AllowanceCharge&gt;
+    &lt;cbc:ChargeIndicator&gt;true&lt;/cbc:ChargeIndicator&gt;
+    &lt;cbc:AllowanceChargeReasonCode&gt;SAA&lt;/cbc:AllowanceChargeReasonCode&gt;
+    &lt;cbc:AllowanceChargeReason&gt;Shipping and Handling&lt;/cbc:AllowanceChargeReason&gt;
+    &lt;cbc:MultiplierFactorNumeric&gt;100&lt;/cbc:MultiplierFactorNumeric&gt;
+    &lt;cbc:Amount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:Amount&gt;
+    &lt;cbc:BaseAmount currencyID&#x3D;&quot;AUD&quot;&gt;50&lt;/cbc:BaseAmount&gt;
+    &lt;cac:TaxCategory&gt;
+      &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+      &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+      &lt;cac:TaxScheme&gt;
+        &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+      &lt;/cac:TaxScheme&gt;
+    &lt;/cac:TaxCategory&gt;
+  &lt;/cac:AllowanceCharge&gt;
+  &lt;cac:TaxTotal&gt;
+    &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+    &lt;cac:TaxSubtotal&gt;
+      &lt;cbc:TaxableAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:TaxableAmount&gt;
+      &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+      &lt;cac:TaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:TaxCategory&gt;
+    &lt;/cac:TaxSubtotal&gt;
+  &lt;/cac:TaxTotal&gt;
+  &lt;cac:LegalMonetaryTotal&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cbc:TaxExclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1537.4&lt;/cbc:TaxExclusiveAmount&gt;
+    &lt;cbc:TaxInclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:TaxInclusiveAmount&gt;
+    &lt;cbc:AllowanceTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;0&lt;/cbc:AllowanceTotalAmount&gt;
+    &lt;cbc:ChargeTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:ChargeTotalAmount&gt;
+    &lt;cbc:PayableAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:PayableAmount&gt;
+  &lt;/cac:LegalMonetaryTotal&gt;
+  &lt;cac:InvoiceLine&gt;
+    &lt;cbc:ID&gt;1&lt;/cbc:ID&gt;
+    &lt;cbc:InvoicedQuantity unitCode&#x3D;&quot;EA&quot;&gt;10&lt;/cbc:InvoicedQuantity&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cac:Item&gt;
+      &lt;cbc:Description&gt;It&#x27;s good.&lt;/cbc:Description&gt;
+      &lt;cbc:Name&gt;Milk&lt;/cbc:Name&gt;
+      &lt;cac:ClassifiedTaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:ClassifiedTaxCategory&gt;
+    &lt;/cac:Item&gt;
+    &lt;cac:Price&gt;
+      &lt;cbc:PriceAmount currencyID&#x3D;&quot;AUD&quot;&gt;148.74&lt;/cbc:PriceAmount&gt;
+    &lt;/cac:Price&gt;
+  &lt;/cac:InvoiceLine&gt;
+&lt;/Invoice&gt;
+</code></pre>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="userUserIdInvoicesGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /user/{userId}/invoices</code></pre></div>
+    <div class="method-summary">List all invoices by unique userId (<span class="nickname">userUserIdInvoicesGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the user </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Invoice">Invoice</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ProfileID" : "ProfileID",
+  "TaxTotal" : {
+    "TaxSubtotal" : { }
+  },
+  "AccountingCost" : "AccountingCost",
+  "InvoiceLine" : {
+    "Item" : {
+      "Description" : "Description"
+    },
+    "InvoicedQuantity" : {
+      "unitCode" : "unitCode",
+      "value" : 5
+    }
+  },
+  "DocumentCurrencyCode" : "DocumentCurrencyCode",
+  "AllowanceCharge" : {
+    "AllowanceChargeReasonCode" : "AllowanceChargeReasonCode",
+    "AllowanceChargeReason" : "AllowanceChargeReason",
+    "MultiplierFactorNumeric" : 0,
+    "TaxCategory" : {
+      "Percent" : 1,
+      "ID" : "ID"
+    },
+    "Amount" : {
+      "currencyID" : "currencyID",
+      "value" : 6.027456183070403
+    },
+    "ChargeIndicator" : true
+  },
+  "IssueDate" : "IssueDate",
+  "PaymentTerms" : {
+    "Note" : "Note"
+  },
+  "AccountingSupplierParty" : {
+    "Party" : {
+      "PostalAddress" : {
+        "StreetName" : "StreetName",
+        "AdditionalStreetName" : "AdditionalStreetName",
+        "Country" : {
+          "IdentificationCode" : "IdentificationCode"
+        },
+        "CityName" : "CityName",
+        "PostalZone" : "PostalZone"
+      },
+      "PartyTaxScheme" : {
+        "CompanyID" : "CompanyID"
+      },
+      "EndpointID" : {
+        "schemeID" : "schemeID",
+        "value" : "value"
+      },
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName",
+        "CompanyLegalForm" : "CompanyLegalForm"
+      },
+      "PartyName" : {
+        "Name" : "Name"
+      },
+      "PartyIdentification" : {
+        "ID" : "ID"
+      },
+      "Contact" : {
+        "Telephone" : "Telephone",
+        "ElectronicMail" : "ElectronicMail",
+        "Name" : "Name"
+      }
+    }
+  },
+  "AccountingCustomerParty" : {
+    "Party" : {
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName"
+      }
+    }
+  },
+  "CustomizationID" : "CustomizationID",
+  "LegalMonetaryTotal" : { },
+  "InvoiceTypeCode" : "InvoiceTypeCode",
+  "Note" : "Note",
+  "ID" : "ID",
+  "BuyerReference" : "BuyerReference",
+  "DueDate" : "DueDate"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response with an example invoice
+        <a href="#Invoice">Invoice</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: invoiceExample</div>
+    <pre class="example"><code>&lt;?xml version&#x3D;&#x27;1.0&#x27; encoding&#x3D;&#x27;UTF-8&#x27;?&gt;
+&lt;Invoice xmlns:cac&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot; xmlns:cbc&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot; xmlns&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;&gt;
+  &lt;cbc:CustomizationID&gt;urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0&lt;/cbc:CustomizationID&gt;
+  &lt;cbc:ProfileID&gt;urn:fdc:peppol.eu:2017:poacc:billing:01:1.0&lt;/cbc:ProfileID&gt;
+  &lt;cbc:ID&gt;Invoice01&lt;/cbc:ID&gt;
+  &lt;cbc:IssueDate&gt;2025-03-11&lt;/cbc:IssueDate&gt;
+  &lt;cbc:DueDate&gt;2025-08-30&lt;/cbc:DueDate&gt;
+  &lt;cbc:InvoiceTypeCode&gt;380&lt;/cbc:InvoiceTypeCode&gt;
+  &lt;cbc:Note&gt;Tax invoice&lt;/cbc:Note&gt;
+  &lt;cbc:DocumentCurrencyCode&gt;AUD&lt;/cbc:DocumentCurrencyCode&gt;
+  &lt;cbc:AccountingCost&gt;4025:123:4343&lt;/cbc:AccountingCost&gt;
+  &lt;cbc:BuyerReference&gt;0150abc&lt;/cbc:BuyerReference&gt;
+  &lt;cac:AccountingSupplierParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID&gt;47555222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Supplier Trading Name Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;Main street 1&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Postbox 123&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Harrison&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2912&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Supplier Official Name Ltd&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cbc:CompanyLegalForm&gt;Partnership&lt;/cbc:CompanyLegalForm&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Ronald MacDonald&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;Mobile 0430123456&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;ronald.macdonald@qualitygoods.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingSupplierParty&gt;
+  &lt;cac:AccountingCustomerParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Trotters Trading Co Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;100 Queen Street&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Po box 878&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Sydney&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2000&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;91888222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Buyer Official Name&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:CompanyID&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Lisa Johnson&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;0261234567&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;lj@buyer.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingCustomerParty&gt;
+  &lt;cac:PaymentTerms&gt;
+    &lt;cbc:Note&gt;Payment within 30 days&lt;/cbc:Note&gt;
+  &lt;/cac:PaymentTerms&gt;
+  &lt;cac:AllowanceCharge&gt;
+    &lt;cbc:ChargeIndicator&gt;true&lt;/cbc:ChargeIndicator&gt;
+    &lt;cbc:AllowanceChargeReasonCode&gt;SAA&lt;/cbc:AllowanceChargeReasonCode&gt;
+    &lt;cbc:AllowanceChargeReason&gt;Shipping and Handling&lt;/cbc:AllowanceChargeReason&gt;
+    &lt;cbc:MultiplierFactorNumeric&gt;100&lt;/cbc:MultiplierFactorNumeric&gt;
+    &lt;cbc:Amount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:Amount&gt;
+    &lt;cbc:BaseAmount currencyID&#x3D;&quot;AUD&quot;&gt;50&lt;/cbc:BaseAmount&gt;
+    &lt;cac:TaxCategory&gt;
+      &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+      &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+      &lt;cac:TaxScheme&gt;
+        &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+      &lt;/cac:TaxScheme&gt;
+    &lt;/cac:TaxCategory&gt;
+  &lt;/cac:AllowanceCharge&gt;
+  &lt;cac:TaxTotal&gt;
+    &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+    &lt;cac:TaxSubtotal&gt;
+      &lt;cbc:TaxableAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:TaxableAmount&gt;
+      &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+      &lt;cac:TaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:TaxCategory&gt;
+    &lt;/cac:TaxSubtotal&gt;
+  &lt;/cac:TaxTotal&gt;
+  &lt;cac:LegalMonetaryTotal&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cbc:TaxExclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1537.4&lt;/cbc:TaxExclusiveAmount&gt;
+    &lt;cbc:TaxInclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:TaxInclusiveAmount&gt;
+    &lt;cbc:AllowanceTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;0&lt;/cbc:AllowanceTotalAmount&gt;
+    &lt;cbc:ChargeTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:ChargeTotalAmount&gt;
+    &lt;cbc:PayableAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:PayableAmount&gt;
+  &lt;/cac:LegalMonetaryTotal&gt;
+  &lt;cac:InvoiceLine&gt;
+    &lt;cbc:ID&gt;1&lt;/cbc:ID&gt;
+    &lt;cbc:InvoicedQuantity unitCode&#x3D;&quot;EA&quot;&gt;10&lt;/cbc:InvoicedQuantity&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cac:Item&gt;
+      &lt;cbc:Description&gt;It&#x27;s good.&lt;/cbc:Description&gt;
+      &lt;cbc:Name&gt;Milk&lt;/cbc:Name&gt;
+      &lt;cac:ClassifiedTaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:ClassifiedTaxCategory&gt;
+    &lt;/cac:Item&gt;
+    &lt;cac:Price&gt;
+      &lt;cbc:PriceAmount currencyID&#x3D;&quot;AUD&quot;&gt;148.74&lt;/cbc:PriceAmount&gt;
+    &lt;/cac:Price&gt;
+  &lt;/cac:InvoiceLine&gt;
+&lt;/Invoice&gt;
+</code></pre>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">404</h4>
+    The user ID does not exist.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="userUserIdInvoicesInvoiceIdDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /user/{userId}/invoices/{invoiceId}</code></pre></div>
+    <div class="method-summary">Delete an invoice (<span class="nickname">userUserIdInvoicesInvoiceIdDelete</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the user related to the invoice. </div>      <div class="param">invoiceId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the invoice to update. </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#succeedResponse">succeedResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Message" : "Message"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    valid.
+        <a href="#succeedResponse">succeedResponse</a>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">404</h4>
+    The user ID does not exist.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="userUserIdInvoicesInvoiceIdGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /user/{userId}/invoices/{invoiceId}</code></pre></div>
+    <div class="method-summary">Retrieve an invoice (<span class="nickname">userUserIdInvoicesInvoiceIdGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the user related to the invoice. </div>      <div class="param">invoiceId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the invoice to update. </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Invoice">Invoice</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ProfileID" : "ProfileID",
+  "TaxTotal" : {
+    "TaxSubtotal" : { }
+  },
+  "AccountingCost" : "AccountingCost",
+  "InvoiceLine" : {
+    "Item" : {
+      "Description" : "Description"
+    },
+    "InvoicedQuantity" : {
+      "unitCode" : "unitCode",
+      "value" : 5
+    }
+  },
+  "DocumentCurrencyCode" : "DocumentCurrencyCode",
+  "AllowanceCharge" : {
+    "AllowanceChargeReasonCode" : "AllowanceChargeReasonCode",
+    "AllowanceChargeReason" : "AllowanceChargeReason",
+    "MultiplierFactorNumeric" : 0,
+    "TaxCategory" : {
+      "Percent" : 1,
+      "ID" : "ID"
+    },
+    "Amount" : {
+      "currencyID" : "currencyID",
+      "value" : 6.027456183070403
+    },
+    "ChargeIndicator" : true
+  },
+  "IssueDate" : "IssueDate",
+  "PaymentTerms" : {
+    "Note" : "Note"
+  },
+  "AccountingSupplierParty" : {
+    "Party" : {
+      "PostalAddress" : {
+        "StreetName" : "StreetName",
+        "AdditionalStreetName" : "AdditionalStreetName",
+        "Country" : {
+          "IdentificationCode" : "IdentificationCode"
+        },
+        "CityName" : "CityName",
+        "PostalZone" : "PostalZone"
+      },
+      "PartyTaxScheme" : {
+        "CompanyID" : "CompanyID"
+      },
+      "EndpointID" : {
+        "schemeID" : "schemeID",
+        "value" : "value"
+      },
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName",
+        "CompanyLegalForm" : "CompanyLegalForm"
+      },
+      "PartyName" : {
+        "Name" : "Name"
+      },
+      "PartyIdentification" : {
+        "ID" : "ID"
+      },
+      "Contact" : {
+        "Telephone" : "Telephone",
+        "ElectronicMail" : "ElectronicMail",
+        "Name" : "Name"
+      }
+    }
+  },
+  "AccountingCustomerParty" : {
+    "Party" : {
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName"
+      }
+    }
+  },
+  "CustomizationID" : "CustomizationID",
+  "LegalMonetaryTotal" : { },
+  "InvoiceTypeCode" : "InvoiceTypeCode",
+  "Note" : "Note",
+  "ID" : "ID",
+  "BuyerReference" : "BuyerReference",
+  "DueDate" : "DueDate"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response with an example invoice
+        <a href="#Invoice">Invoice</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: invoiceExample</div>
+    <pre class="example"><code>&lt;?xml version&#x3D;&#x27;1.0&#x27; encoding&#x3D;&#x27;UTF-8&#x27;?&gt;
+&lt;Invoice xmlns:cac&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot; xmlns:cbc&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot; xmlns&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;&gt;
+  &lt;cbc:CustomizationID&gt;urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0&lt;/cbc:CustomizationID&gt;
+  &lt;cbc:ProfileID&gt;urn:fdc:peppol.eu:2017:poacc:billing:01:1.0&lt;/cbc:ProfileID&gt;
+  &lt;cbc:ID&gt;Invoice02&lt;/cbc:ID&gt;
+  &lt;cbc:IssueDate&gt;2025-04-11&lt;/cbc:IssueDate&gt;
+  &lt;cbc:DueDate&gt;2025-09-30&lt;/cbc:DueDate&gt;
+  &lt;cbc:InvoiceTypeCode&gt;380&lt;/cbc:InvoiceTypeCode&gt;
+  &lt;cbc:Note&gt;Tax invoice&lt;/cbc:Note&gt;
+  &lt;cbc:DocumentCurrencyCode&gt;AUD&lt;/cbc:DocumentCurrencyCode&gt;
+  &lt;cbc:AccountingCost&gt;4025:123:4343&lt;/cbc:AccountingCost&gt;
+  &lt;cbc:BuyerReference&gt;0150abc&lt;/cbc:BuyerReference&gt;
+  &lt;cac:AccountingSupplierParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID&gt;47555222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Supplier Trading Name Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;Main street 1&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Postbox 123&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Harrison&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2912&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Supplier Official Name Ltd&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cbc:CompanyLegalForm&gt;Partnership&lt;/cbc:CompanyLegalForm&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Ronald MacDonald&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;Mobile 0430123456&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;ronald.macdonald@qualitygoods.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingSupplierParty&gt;
+  &lt;cac:AccountingCustomerParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Trotters Trading Co Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;100 Queen Street&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Po box 878&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Sydney&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2000&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;91888222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Buyer Official Name&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:CompanyID&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Lisa Johnson&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;0261234567&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;lj@buyer.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingCustomerParty&gt;
+  &lt;cac:PaymentTerms&gt;
+    &lt;cbc:Note&gt;Payment within 30 days&lt;/cbc:Note&gt;
+  &lt;/cac:PaymentTerms&gt;
+  &lt;cac:AllowanceCharge&gt;
+    &lt;cbc:ChargeIndicator&gt;true&lt;/cbc:ChargeIndicator&gt;
+    &lt;cbc:AllowanceChargeReasonCode&gt;SAA&lt;/cbc:AllowanceChargeReasonCode&gt;
+    &lt;cbc:AllowanceChargeReason&gt;Shipping and Handling&lt;/cbc:AllowanceChargeReason&gt;
+    &lt;cbc:MultiplierFactorNumeric&gt;100&lt;/cbc:MultiplierFactorNumeric&gt;
+    &lt;cbc:Amount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:Amount&gt;
+    &lt;cbc:BaseAmount currencyID&#x3D;&quot;AUD&quot;&gt;50&lt;/cbc:BaseAmount&gt;
+    &lt;cac:TaxCategory&gt;
+      &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+      &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+      &lt;cac:TaxScheme&gt;
+        &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+      &lt;/cac:TaxScheme&gt;
+    &lt;/cac:TaxCategory&gt;
+  &lt;/cac:AllowanceCharge&gt;
+  &lt;cac:TaxTotal&gt;
+    &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+    &lt;cac:TaxSubtotal&gt;
+      &lt;cbc:TaxableAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:TaxableAmount&gt;
+      &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+      &lt;cac:TaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:TaxCategory&gt;
+    &lt;/cac:TaxSubtotal&gt;
+  &lt;/cac:TaxTotal&gt;
+  &lt;cac:LegalMonetaryTotal&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cbc:TaxExclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1537.4&lt;/cbc:TaxExclusiveAmount&gt;
+    &lt;cbc:TaxInclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:TaxInclusiveAmount&gt;
+    &lt;cbc:AllowanceTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;0&lt;/cbc:AllowanceTotalAmount&gt;
+    &lt;cbc:ChargeTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:ChargeTotalAmount&gt;
+    &lt;cbc:PayableAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:PayableAmount&gt;
+  &lt;/cac:LegalMonetaryTotal&gt;
+  &lt;cac:InvoiceLine&gt;
+    &lt;cbc:ID&gt;1&lt;/cbc:ID&gt;
+    &lt;cbc:InvoicedQuantity unitCode&#x3D;&quot;EA&quot;&gt;10&lt;/cbc:InvoicedQuantity&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cac:Item&gt;
+      &lt;cbc:Description&gt;It&#x27;s good.&lt;/cbc:Description&gt;
+      &lt;cbc:Name&gt;Milk&lt;/cbc:Name&gt;
+      &lt;cac:ClassifiedTaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:ClassifiedTaxCategory&gt;
+    &lt;/cac:Item&gt;
+    &lt;cac:Price&gt;
+      &lt;cbc:PriceAmount currencyID&#x3D;&quot;AUD&quot;&gt;148.74&lt;/cbc:PriceAmount&gt;
+    &lt;/cac:Price&gt;
+  &lt;/cac:InvoiceLine&gt;
+&lt;/Invoice&gt;
+</code></pre>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">404</h4>
+    The user ID does not exist.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="userUserIdInvoicesInvoiceIdPut"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /user/{userId}/invoices/{invoiceId}</code></pre></div>
+    <div class="method-summary">update an invoice (<span class="nickname">userUserIdInvoicesInvoiceIdPut</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the user related to the invoice. </div>      <div class="param">invoiceId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the invoice to update. </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Invoice">Invoice</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "ProfileID" : "ProfileID",
+  "TaxTotal" : {
+    "TaxSubtotal" : { }
+  },
+  "AccountingCost" : "AccountingCost",
+  "InvoiceLine" : {
+    "Item" : {
+      "Description" : "Description"
+    },
+    "InvoicedQuantity" : {
+      "unitCode" : "unitCode",
+      "value" : 5
+    }
+  },
+  "DocumentCurrencyCode" : "DocumentCurrencyCode",
+  "AllowanceCharge" : {
+    "AllowanceChargeReasonCode" : "AllowanceChargeReasonCode",
+    "AllowanceChargeReason" : "AllowanceChargeReason",
+    "MultiplierFactorNumeric" : 0,
+    "TaxCategory" : {
+      "Percent" : 1,
+      "ID" : "ID"
+    },
+    "Amount" : {
+      "currencyID" : "currencyID",
+      "value" : 6.027456183070403
+    },
+    "ChargeIndicator" : true
+  },
+  "IssueDate" : "IssueDate",
+  "PaymentTerms" : {
+    "Note" : "Note"
+  },
+  "AccountingSupplierParty" : {
+    "Party" : {
+      "PostalAddress" : {
+        "StreetName" : "StreetName",
+        "AdditionalStreetName" : "AdditionalStreetName",
+        "Country" : {
+          "IdentificationCode" : "IdentificationCode"
+        },
+        "CityName" : "CityName",
+        "PostalZone" : "PostalZone"
+      },
+      "PartyTaxScheme" : {
+        "CompanyID" : "CompanyID"
+      },
+      "EndpointID" : {
+        "schemeID" : "schemeID",
+        "value" : "value"
+      },
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName",
+        "CompanyLegalForm" : "CompanyLegalForm"
+      },
+      "PartyName" : {
+        "Name" : "Name"
+      },
+      "PartyIdentification" : {
+        "ID" : "ID"
+      },
+      "Contact" : {
+        "Telephone" : "Telephone",
+        "ElectronicMail" : "ElectronicMail",
+        "Name" : "Name"
+      }
+    }
+  },
+  "AccountingCustomerParty" : {
+    "Party" : {
+      "PartyLegalEntity" : {
+        "RegistrationName" : "RegistrationName"
+      }
+    }
+  },
+  "CustomizationID" : "CustomizationID",
+  "LegalMonetaryTotal" : { },
+  "InvoiceTypeCode" : "InvoiceTypeCode",
+  "Note" : "Note",
+  "ID" : "ID",
+  "BuyerReference" : "BuyerReference",
+  "DueDate" : "DueDate"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Successful response with an example invoice
+        <a href="#Invoice">Invoice</a>
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: invoiceExample</div>
+    <pre class="example"><code>&lt;?xml version&#x3D;&#x27;1.0&#x27; encoding&#x3D;&#x27;UTF-8&#x27;?&gt;
+&lt;Invoice xmlns:cac&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot; xmlns:cbc&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot; xmlns&#x3D;&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;&gt;
+  &lt;cbc:CustomizationID&gt;urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0&lt;/cbc:CustomizationID&gt;
+  &lt;cbc:ProfileID&gt;urn:fdc:peppol.eu:2017:poacc:billing:01:1.0&lt;/cbc:ProfileID&gt;
+  &lt;cbc:ID&gt;Invoice02&lt;/cbc:ID&gt;
+  &lt;cbc:IssueDate&gt;2025-04-11&lt;/cbc:IssueDate&gt;
+  &lt;cbc:DueDate&gt;2025-09-30&lt;/cbc:DueDate&gt;
+  &lt;cbc:InvoiceTypeCode&gt;380&lt;/cbc:InvoiceTypeCode&gt;
+  &lt;cbc:Note&gt;Tax invoice&lt;/cbc:Note&gt;
+  &lt;cbc:DocumentCurrencyCode&gt;AUD&lt;/cbc:DocumentCurrencyCode&gt;
+  &lt;cbc:AccountingCost&gt;4025:123:4343&lt;/cbc:AccountingCost&gt;
+  &lt;cbc:BuyerReference&gt;0150abc&lt;/cbc:BuyerReference&gt;
+  &lt;cac:AccountingSupplierParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID&gt;47555222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Supplier Trading Name Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;Main street 1&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Postbox 123&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Harrison&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2912&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Supplier Official Name Ltd&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;47555222000&lt;/cbc:CompanyID&gt;
+        &lt;cbc:CompanyLegalForm&gt;Partnership&lt;/cbc:CompanyLegalForm&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Ronald MacDonald&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;Mobile 0430123456&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;ronald.macdonald@qualitygoods.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingSupplierParty&gt;
+  &lt;cac:AccountingCustomerParty&gt;
+    &lt;cac:Party&gt;
+      &lt;cbc:EndpointID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:EndpointID&gt;
+      &lt;cac:PartyIdentification&gt;
+        &lt;cbc:ID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:ID&gt;
+      &lt;/cac:PartyIdentification&gt;
+      &lt;cac:PartyName&gt;
+        &lt;cbc:Name&gt;Trotters Trading Co Ltd&lt;/cbc:Name&gt;
+      &lt;/cac:PartyName&gt;
+      &lt;cac:PostalAddress&gt;
+        &lt;cbc:StreetName&gt;100 Queen Street&lt;/cbc:StreetName&gt;
+        &lt;cbc:AdditionalStreetName&gt;Po box 878&lt;/cbc:AdditionalStreetName&gt;
+        &lt;cbc:CityName&gt;Sydney&lt;/cbc:CityName&gt;
+        &lt;cbc:PostalZone&gt;2000&lt;/cbc:PostalZone&gt;
+        &lt;cac:Country&gt;
+          &lt;cbc:IdentificationCode&gt;AU&lt;/cbc:IdentificationCode&gt;
+        &lt;/cac:Country&gt;
+      &lt;/cac:PostalAddress&gt;
+      &lt;cac:PartyTaxScheme&gt;
+        &lt;cbc:CompanyID&gt;91888222000&lt;/cbc:CompanyID&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:PartyTaxScheme&gt;
+      &lt;cac:PartyLegalEntity&gt;
+        &lt;cbc:RegistrationName&gt;Buyer Official Name&lt;/cbc:RegistrationName&gt;
+        &lt;cbc:CompanyID schemeID&#x3D;&quot;0151&quot;&gt;91888222000&lt;/cbc:CompanyID&gt;
+      &lt;/cac:PartyLegalEntity&gt;
+      &lt;cac:Contact&gt;
+        &lt;cbc:Name&gt;Lisa Johnson&lt;/cbc:Name&gt;
+        &lt;cbc:Telephone&gt;0261234567&lt;/cbc:Telephone&gt;
+        &lt;cbc:ElectronicMail&gt;lj@buyer.com.au&lt;/cbc:ElectronicMail&gt;
+      &lt;/cac:Contact&gt;
+    &lt;/cac:Party&gt;
+  &lt;/cac:AccountingCustomerParty&gt;
+  &lt;cac:PaymentTerms&gt;
+    &lt;cbc:Note&gt;Payment within 30 days&lt;/cbc:Note&gt;
+  &lt;/cac:PaymentTerms&gt;
+  &lt;cac:AllowanceCharge&gt;
+    &lt;cbc:ChargeIndicator&gt;true&lt;/cbc:ChargeIndicator&gt;
+    &lt;cbc:AllowanceChargeReasonCode&gt;SAA&lt;/cbc:AllowanceChargeReasonCode&gt;
+    &lt;cbc:AllowanceChargeReason&gt;Shipping and Handling&lt;/cbc:AllowanceChargeReason&gt;
+    &lt;cbc:MultiplierFactorNumeric&gt;100&lt;/cbc:MultiplierFactorNumeric&gt;
+    &lt;cbc:Amount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:Amount&gt;
+    &lt;cbc:BaseAmount currencyID&#x3D;&quot;AUD&quot;&gt;50&lt;/cbc:BaseAmount&gt;
+    &lt;cac:TaxCategory&gt;
+      &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+      &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+      &lt;cac:TaxScheme&gt;
+        &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+      &lt;/cac:TaxScheme&gt;
+    &lt;/cac:TaxCategory&gt;
+  &lt;/cac:AllowanceCharge&gt;
+  &lt;cac:TaxTotal&gt;
+    &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+    &lt;cac:TaxSubtotal&gt;
+      &lt;cbc:TaxableAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:TaxableAmount&gt;
+      &lt;cbc:TaxAmount currencyID&#x3D;&quot;AUD&quot;&gt;5.0&lt;/cbc:TaxAmount&gt;
+      &lt;cac:TaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:TaxCategory&gt;
+    &lt;/cac:TaxSubtotal&gt;
+  &lt;/cac:TaxTotal&gt;
+  &lt;cac:LegalMonetaryTotal&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cbc:TaxExclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1537.4&lt;/cbc:TaxExclusiveAmount&gt;
+    &lt;cbc:TaxInclusiveAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:TaxInclusiveAmount&gt;
+    &lt;cbc:AllowanceTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;0&lt;/cbc:AllowanceTotalAmount&gt;
+    &lt;cbc:ChargeTotalAmount currencyID&#x3D;&quot;AUD&quot;&gt;50.0&lt;/cbc:ChargeTotalAmount&gt;
+    &lt;cbc:PayableAmount currencyID&#x3D;&quot;AUD&quot;&gt;1542.4&lt;/cbc:PayableAmount&gt;
+  &lt;/cac:LegalMonetaryTotal&gt;
+  &lt;cac:InvoiceLine&gt;
+    &lt;cbc:ID&gt;1&lt;/cbc:ID&gt;
+    &lt;cbc:InvoicedQuantity unitCode&#x3D;&quot;EA&quot;&gt;10&lt;/cbc:InvoicedQuantity&gt;
+    &lt;cbc:LineExtensionAmount currencyID&#x3D;&quot;AUD&quot;&gt;1487.4&lt;/cbc:LineExtensionAmount&gt;
+    &lt;cac:Item&gt;
+      &lt;cbc:Description&gt;It&#x27;s good.&lt;/cbc:Description&gt;
+      &lt;cbc:Name&gt;Milk&lt;/cbc:Name&gt;
+      &lt;cac:ClassifiedTaxCategory&gt;
+        &lt;cbc:ID&gt;S&lt;/cbc:ID&gt;
+        &lt;cbc:Percent&gt;10&lt;/cbc:Percent&gt;
+        &lt;cac:TaxScheme&gt;
+          &lt;cbc:ID&gt;GST&lt;/cbc:ID&gt;
+        &lt;/cac:TaxScheme&gt;
+      &lt;/cac:ClassifiedTaxCategory&gt;
+    &lt;/cac:Item&gt;
+    &lt;cac:Price&gt;
+      &lt;cbc:PriceAmount currencyID&#x3D;&quot;AUD&quot;&gt;148.74&lt;/cbc:PriceAmount&gt;
+    &lt;/cac:Price&gt;
+  &lt;/cac:InvoiceLine&gt;
+&lt;/Invoice&gt;
+</code></pre>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">404</h4>
+    The user ID does not exist.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="userUserIdInvoicesInvoiceIdValidateGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /user/{userId}/invoices/{invoiceId}/validate</code></pre></div>
+    <div class="method-summary">Validate invoice Format (<span class="nickname">userUserIdInvoicesInvoiceIdValidateGet</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">userId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the user to validate. </div>      <div class="param">invoiceId (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; The unique identifier of the invoice to validate. </div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#succeedResponse">succeedResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Message" : "Message"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    valid.
+        <a href="#succeedResponse">succeedResponse</a>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">404</h4>
+    The user ID does not exist.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="User">User</a></h1>
+  <div class="method"><a name="createUser"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /user</code></pre></div>
+    <div class="method-summary">Create user (<span class="nickname">createUser</span>)</div>
+    <div class="method-notes">This can only be done by the logged in user.</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#User">User</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; Created user object </div>
+                </div>  <!-- field-items -->
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">operation (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">username (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">password (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">email (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">phone (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UserId">UserId</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "userId(ABN)" : "12345678904"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    valid.
+        <a href="#UserId">UserId</a>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="loginUser"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /user/login</code></pre></div>
+    <div class="method-summary">Logs user into the system (<span class="nickname">loginUser</span>)</div>
+    <div class="method-notes"></div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#user_login_body">user_login_body</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; User login credentials </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#UserId">UserId</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "userId(ABN)" : "12345678904"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    valid.
+        <a href="#UserId">UserId</a>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">404</h4>
+    The user ID does not exist.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="logoutUser"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /user/logout</code></pre></div>
+    <div class="method-summary">Logs out current logged in user session (<span class="nickname">logoutUser</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#succeedResponse">succeedResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "Message" : "Message"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>application/xml</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    valid.
+        <a href="#succeedResponse">succeedResponse</a>
+    <h4 class="field-label">400</h4>
+    Invalid format.
+        <a href="#ErrorResponse">ErrorResponse</a>
+    <h4 class="field-label">404</h4>
+    The user ID does not exist.
+        <a href="#ErrorResponse">ErrorResponse</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#ErrorResponse"><code>ErrorResponse</code></a></li>
+    <li><a href="#Invoice"><code>Invoice</code></a></li>
+    <li><a href="#Invoice_AccountingCustomerParty"><code>Invoice_AccountingCustomerParty</code></a></li>
+    <li><a href="#Invoice_AccountingCustomerParty_Party"><code>Invoice_AccountingCustomerParty_Party</code></a></li>
+    <li><a href="#Invoice_AccountingCustomerParty_Party_PartyLegalEntity"><code>Invoice_AccountingCustomerParty_Party_PartyLegalEntity</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty"><code>Invoice_AccountingSupplierParty</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party"><code>Invoice_AccountingSupplierParty_Party</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_Contact"><code>Invoice_AccountingSupplierParty_Party_Contact</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_EndpointID"><code>Invoice_AccountingSupplierParty_Party_EndpointID</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_PartyIdentification"><code>Invoice_AccountingSupplierParty_Party_PartyIdentification</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_PartyLegalEntity"><code>Invoice_AccountingSupplierParty_Party_PartyLegalEntity</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_PartyName"><code>Invoice_AccountingSupplierParty_Party_PartyName</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_PartyTaxScheme"><code>Invoice_AccountingSupplierParty_Party_PartyTaxScheme</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_PostalAddress"><code>Invoice_AccountingSupplierParty_Party_PostalAddress</code></a></li>
+    <li><a href="#Invoice_AccountingSupplierParty_Party_PostalAddress_Country"><code>Invoice_AccountingSupplierParty_Party_PostalAddress_Country</code></a></li>
+    <li><a href="#Invoice_AllowanceCharge"><code>Invoice_AllowanceCharge</code></a></li>
+    <li><a href="#Invoice_AllowanceCharge_Amount"><code>Invoice_AllowanceCharge_Amount</code></a></li>
+    <li><a href="#Invoice_AllowanceCharge_TaxCategory"><code>Invoice_AllowanceCharge_TaxCategory</code></a></li>
+    <li><a href="#Invoice_InvoiceLine"><code>Invoice_InvoiceLine</code></a></li>
+    <li><a href="#Invoice_InvoiceLine_InvoicedQuantity"><code>Invoice_InvoiceLine_InvoicedQuantity</code></a></li>
+    <li><a href="#Invoice_InvoiceLine_Item"><code>Invoice_InvoiceLine_Item</code></a></li>
+    <li><a href="#Invoice_LegalMonetaryTotal"><code>Invoice_LegalMonetaryTotal</code></a></li>
+    <li><a href="#Invoice_PaymentTerms"><code>Invoice_PaymentTerms</code></a></li>
+    <li><a href="#Invoice_TaxTotal"><code>Invoice_TaxTotal</code></a></li>
+    <li><a href="#Invoice_TaxTotal_TaxSubtotal"><code>Invoice_TaxTotal_TaxSubtotal</code></a></li>
+    <li><a href="#User"><code>User</code></a></li>
+    <li><a href="#UserId"><code>UserId</code></a></li>
+    <li><a href="#succeedResponse"><code>succeedResponse</code></a></li>
+    <li><a href="#userId_invoices_body"><code>userId_invoices_body</code></a></li>
+    <li><a href="#user_login_body"><code>user_login_body</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="ErrorResponse"><code>ErrorResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">errorMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice"><code>Invoice</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">CustomizationID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ProfileID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">IssueDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DueDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">InvoiceTypeCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Note (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">DocumentCurrencyCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AccountingCost (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">BuyerReference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AccountingSupplierParty (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty">Invoice_AccountingSupplierParty</a></span>  </div>
+<div class="param">AccountingCustomerParty (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingCustomerParty">Invoice_AccountingCustomerParty</a></span>  </div>
+<div class="param">PaymentTerms (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_PaymentTerms">Invoice_PaymentTerms</a></span>  </div>
+<div class="param">AllowanceCharge (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge">Invoice_AllowanceCharge</a></span>  </div>
+<div class="param">TaxTotal (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_TaxTotal">Invoice_TaxTotal</a></span>  </div>
+<div class="param">LegalMonetaryTotal (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_LegalMonetaryTotal">Invoice_LegalMonetaryTotal</a></span>  </div>
+<div class="param">InvoiceLine (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_InvoiceLine">Invoice_InvoiceLine</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingCustomerParty"><code>Invoice_AccountingCustomerParty</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">Party (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingCustomerParty_Party">Invoice_AccountingCustomerParty_Party</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingCustomerParty_Party"><code>Invoice_AccountingCustomerParty_Party</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">EndpointID (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_EndpointID">Invoice_AccountingSupplierParty_Party_EndpointID</a></span>  </div>
+<div class="param">PartyIdentification (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyIdentification">Invoice_AccountingSupplierParty_Party_PartyIdentification</a></span>  </div>
+<div class="param">PartyName (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyName">Invoice_AccountingSupplierParty_Party_PartyName</a></span>  </div>
+<div class="param">PostalAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PostalAddress">Invoice_AccountingSupplierParty_Party_PostalAddress</a></span>  </div>
+<div class="param">PartyTaxScheme (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyTaxScheme">Invoice_AccountingSupplierParty_Party_PartyTaxScheme</a></span>  </div>
+<div class="param">PartyLegalEntity (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingCustomerParty_Party_PartyLegalEntity">Invoice_AccountingCustomerParty_Party_PartyLegalEntity</a></span>  </div>
+<div class="param">Contact (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_Contact">Invoice_AccountingSupplierParty_Party_Contact</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingCustomerParty_Party_PartyLegalEntity"><code>Invoice_AccountingCustomerParty_Party_PartyLegalEntity</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">RegistrationName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CompanyID (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_EndpointID">Invoice_AccountingSupplierParty_Party_EndpointID</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty"><code>Invoice_AccountingSupplierParty</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">Party (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party">Invoice_AccountingSupplierParty_Party</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party"><code>Invoice_AccountingSupplierParty_Party</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">EndpointID (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_EndpointID">Invoice_AccountingSupplierParty_Party_EndpointID</a></span>  </div>
+<div class="param">PartyIdentification (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyIdentification">Invoice_AccountingSupplierParty_Party_PartyIdentification</a></span>  </div>
+<div class="param">PartyName (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyName">Invoice_AccountingSupplierParty_Party_PartyName</a></span>  </div>
+<div class="param">PostalAddress (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PostalAddress">Invoice_AccountingSupplierParty_Party_PostalAddress</a></span>  </div>
+<div class="param">PartyTaxScheme (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyTaxScheme">Invoice_AccountingSupplierParty_Party_PartyTaxScheme</a></span>  </div>
+<div class="param">PartyLegalEntity (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyLegalEntity">Invoice_AccountingSupplierParty_Party_PartyLegalEntity</a></span>  </div>
+<div class="param">Contact (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_Contact">Invoice_AccountingSupplierParty_Party_Contact</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_Contact"><code>Invoice_AccountingSupplierParty_Party_Contact</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Telephone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">ElectronicMail (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_EndpointID"><code>Invoice_AccountingSupplierParty_Party_EndpointID</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">schemeID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_PartyIdentification"><code>Invoice_AccountingSupplierParty_Party_PartyIdentification</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">ID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_PartyLegalEntity"><code>Invoice_AccountingSupplierParty_Party_PartyLegalEntity</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">RegistrationName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CompanyID (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_EndpointID">Invoice_AccountingSupplierParty_Party_EndpointID</a></span>  </div>
+<div class="param">CompanyLegalForm (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_PartyName"><code>Invoice_AccountingSupplierParty_Party_PartyName</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">Name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_PartyTaxScheme"><code>Invoice_AccountingSupplierParty_Party_PartyTaxScheme</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">CompanyID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">TaxScheme (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyIdentification">Invoice_AccountingSupplierParty_Party_PartyIdentification</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_PostalAddress"><code>Invoice_AccountingSupplierParty_Party_PostalAddress</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">StreetName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AdditionalStreetName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">CityName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">PostalZone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Country (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PostalAddress_Country">Invoice_AccountingSupplierParty_Party_PostalAddress_Country</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AccountingSupplierParty_Party_PostalAddress_Country"><code>Invoice_AccountingSupplierParty_Party_PostalAddress_Country</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">IdentificationCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AllowanceCharge"><code>Invoice_AllowanceCharge</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">ChargeIndicator (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">AllowanceChargeReasonCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">AllowanceChargeReason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">MultiplierFactorNumeric (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">Amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">BaseAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">TaxCategory (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_TaxCategory">Invoice_AllowanceCharge_TaxCategory</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AllowanceCharge_Amount"><code>Invoice_AllowanceCharge_Amount</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">currencyID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_AllowanceCharge_TaxCategory"><code>Invoice_AllowanceCharge_TaxCategory</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">ID (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">Percent (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">TaxScheme (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AccountingSupplierParty_Party_PartyIdentification">Invoice_AccountingSupplierParty_Party_PartyIdentification</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_InvoiceLine"><code>Invoice_InvoiceLine</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">InvoicedQuantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_InvoiceLine_InvoicedQuantity">Invoice_InvoiceLine_InvoicedQuantity</a></span>  </div>
+<div class="param">LineExtensionAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">Item (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_InvoiceLine_Item">Invoice_InvoiceLine_Item</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_InvoiceLine_InvoicedQuantity"><code>Invoice_InvoiceLine_InvoicedQuantity</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">unitCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_InvoiceLine_Item"><code>Invoice_InvoiceLine_Item</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">Description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_LegalMonetaryTotal"><code>Invoice_LegalMonetaryTotal</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">LineExtensionAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">TaxExclusiveAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">TaxInclusiveAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">AllowanceTotalAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">ChargeTotalAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">PayableAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_PaymentTerms"><code>Invoice_PaymentTerms</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">Note (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_TaxTotal"><code>Invoice_TaxTotal</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">TaxAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">TaxSubtotal (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_TaxTotal_TaxSubtotal">Invoice_TaxTotal_TaxSubtotal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Invoice_TaxTotal_TaxSubtotal"><code>Invoice_TaxTotal_TaxSubtotal</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">TaxableAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">TaxAmount (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_Amount">Invoice_AllowanceCharge_Amount</a></span>  </div>
+<div class="param">TaxCategory (optional)</div><div class="param-desc"><span class="param-type"><a href="#Invoice_AllowanceCharge_TaxCategory">Invoice_AllowanceCharge_TaxCategory</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User"><code>User</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">operation (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: register</span></div>
+<div class="param">username (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: theUser</span></div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 12345</span></div>
+<div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: john@email.com</span></div>
+<div class="param">phone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 490223987</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="UserId"><code>UserId</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">userId(ABN) (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 12345678904</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="succeedResponse"><code>succeedResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">Message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="userId_invoices_body"><code>userId_invoices_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">customization_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0</span></div>
+<div class="param">profile_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</span></div>
+<div class="param">issue_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2025-03-11</span></div>
+<div class="param">due_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2025-08-30</span></div>
+<div class="param">invoice_type_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 380</span></div>
+<div class="param">note (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Tax invoice</span></div>
+<div class="param">document_currency_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: AUD</span></div>
+<div class="param">accounting_cost (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 4025:123:4343</span></div>
+<div class="param">buyer_reference (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0150abc</span></div>
+<div class="param">supplier_endpoint_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 47555222000</span></div>
+<div class="param">supplier_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 47555222000</span></div>
+<div class="param">supplier_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Supplier Trading Name Ltd</span></div>
+<div class="param">supplier_street_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Main street 1</span></div>
+<div class="param">supplier_additional_street_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Postbox 123</span></div>
+<div class="param">supplier_city_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Harrison</span></div>
+<div class="param">supplier_postal_zone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2912</span></div>
+<div class="param">supplier_country_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: AU</span></div>
+<div class="param">supplier_company_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 47555222000</span></div>
+<div class="param">supplier_registration_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Supplier Official Name Ltd</span></div>
+<div class="param">supplier_company_legal_form (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Partnership</span></div>
+<div class="param">supplier_contact_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Ronald MacDonald</span></div>
+<div class="param">supplier_contact_telephone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Mobile 0430123456</span></div>
+<div class="param">supplier_contact_email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: ronald.macdonald@qualitygoods.com.au</span></div>
+<div class="param">customer_endpoint_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 91888222000</span></div>
+<div class="param">customer_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 91888222000</span></div>
+<div class="param">customer_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Trotters Trading Co Ltd</span></div>
+<div class="param">customer_street_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 100 Queen Street</span></div>
+<div class="param">customer_additional_street_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Po box 878</span></div>
+<div class="param">customer_city_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Sydney</span></div>
+<div class="param">customer_postal_zone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 2000</span></div>
+<div class="param">customer_country_code (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: AU</span></div>
+<div class="param">customer_company_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 91888222000</span></div>
+<div class="param">customer_registration_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Buyer Official Name</span></div>
+<div class="param">customer_contact_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Lisa Johnson</span></div>
+<div class="param">customer_contact_telephone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0261234567</span></div>
+<div class="param">customer_contact_email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: lj@buyer.com.au</span></div>
+<div class="param">payment_note (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Payment within 30 days</span></div>
+<div class="param">multiplier_factor (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 100</span></div>
+<div class="param">base_amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 50</span></div>
+<div class="param">line_extension_amount (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 1487.4</span></div>
+<div class="param">tax_percent (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+<div class="param">quantity (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+<div class="param">item_description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: It&#x27;s good.</span></div>
+<div class="param">item_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: Milk</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="user_login_body"><code>user_login_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">email (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">password (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
