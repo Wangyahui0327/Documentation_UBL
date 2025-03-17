@@ -1,0 +1,1408 @@
+openapi: 3.0.3
+info:
+  title: Swagger Petstore - OpenAPI 3.0
+  description: This is our group project SENG2021 LockedIn swagger
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+tags:
+  - name: user
+    description: Operations about user
+  - name: invoice
+    description: Operations about invoices
+paths:
+  /user:
+    post:
+      tags:
+        - user
+      summary: Create user
+      description: This can only be done by the logged in user.
+      operationId: createUser
+      requestBody:
+        description: Created user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserId'
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /user/login:
+    post:
+      tags:
+        - user
+      summary: Logs user into the system
+      description: ''
+      operationId: loginUser
+      requestBody:
+        description: User login credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserId'
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The user ID does not exist.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /user/logout:
+    delete:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      description: ''
+      operationId: logoutUser
+      responses:
+        '200':
+          description: valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/succeedResponse'
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The user ID does not exist.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /user/{userId}/invoices:
+    parameters:
+      - name: userId
+        in: path
+        description: The unique identifier of the user
+        required: true
+        schema:
+          type: string
+    summary: create an invoice
+    post:
+      summary: create invoices
+      description: ''
+      operationId: createInvoice
+      requestBody:
+        description: Parameters for creating an invoice
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                customization_id:
+                  type: string
+                  example: >-
+                    urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0
+                profile_id:
+                  type: string
+                  example: urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
+                invoice_id:
+                  type: string
+                  example: Invoice01
+                issue_date:
+                  type: string
+                  example: '2025-03-11'
+                due_date:
+                  type: string
+                  example: '2025-08-30'
+                invoice_type_code:
+                  type: string
+                  example: '380'
+                note:
+                  type: string
+                  example: Tax invoice
+                document_currency_code:
+                  type: string
+                  example: AUD
+                accounting_cost:
+                  type: string
+                  example: '4025:123:4343'
+                buyer_reference:
+                  type: string
+                  example: 0150abc
+                supplier_endpoint_id:
+                  type: string
+                  example: '47555222000'
+                supplier_id:
+                  type: string
+                  example: '47555222000'
+                supplier_name:
+                  type: string
+                  example: Supplier Trading Name Ltd
+                supplier_street_name:
+                  type: string
+                  example: Main street 1
+                supplier_additional_street_name:
+                  type: string
+                  example: Postbox 123
+                supplier_city_name:
+                  type: string
+                  example: Harrison
+                supplier_postal_zone:
+                  type: string
+                  example: '2912'
+                supplier_country_code:
+                  type: string
+                  example: AU
+                supplier_company_id:
+                  type: string
+                  example: '47555222000'
+                supplier_registration_name:
+                  type: string
+                  example: Supplier Official Name Ltd
+                supplier_company_legal_form:
+                  type: string
+                  example: Partnership
+                supplier_contact_name:
+                  type: string
+                  example: Ronald MacDonald
+                supplier_contact_telephone:
+                  type: string
+                  example: Mobile 0430123456
+                supplier_contact_email:
+                  type: string
+                  example: ronald.macdonald@qualitygoods.com.au
+                customer_endpoint_id:
+                  type: string
+                  example: '91888222000'
+                customer_id:
+                  type: string
+                  example: '91888222000'
+                customer_name:
+                  type: string
+                  example: Trotters Trading Co Ltd
+                customer_street_name:
+                  type: string
+                  example: 100 Queen Street
+                customer_additional_street_name:
+                  type: string
+                  example: Po box 878
+                customer_city_name:
+                  type: string
+                  example: Sydney
+                customer_postal_zone:
+                  type: string
+                  example: '2000'
+                customer_country_code:
+                  type: string
+                  example: AU
+                customer_company_id:
+                  type: string
+                  example: '91888222000'
+                customer_registration_name:
+                  type: string
+                  example: Buyer Official Name
+                customer_contact_name:
+                  type: string
+                  example: Lisa Johnson
+                customer_contact_telephone:
+                  type: string
+                  example: '0261234567'
+                customer_contact_email:
+                  type: string
+                  example: lj@buyer.com.au
+                payment_note:
+                  type: string
+                  example: Payment within 30 days
+                multiplier_factor:
+                  type: integer
+                  example: 100
+                base_amount:
+                  type: number
+                  example: 50
+                line_extension_amount:
+                  type: number
+                  example: 1487.4
+                tax_percent:
+                  type: integer
+                  example: 10
+                quantity:
+                  type: integer
+                  example: 10
+                item_description:
+                  type: string
+                  example: It's good.
+                item_name:
+                  type: string
+                  example: Milk
+      responses:
+        '200':
+          description: Successful response with an example invoice
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+              examples:
+                invoiceExample:
+                  value: >
+                    <?xml version='1.0' encoding='UTF-8'?>
+
+                    <Invoice
+                    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                      <cbc:CustomizationID>urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0</cbc:CustomizationID>
+                      <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                      <cbc:ID>Invoice01</cbc:ID>
+                      <cbc:IssueDate>2025-03-11</cbc:IssueDate>
+                      <cbc:DueDate>2025-08-30</cbc:DueDate>
+                      <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+                      <cbc:Note>Tax invoice</cbc:Note>
+                      <cbc:DocumentCurrencyCode>AUD</cbc:DocumentCurrencyCode>
+                      <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
+                      <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+                      <cac:AccountingSupplierParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">47555222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID>47555222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Supplier Trading Name Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>Main street 1</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Postbox 123</cbc:AdditionalStreetName>
+                            <cbc:CityName>Harrison</cbc:CityName>
+                            <cbc:PostalZone>2912</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>47555222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Supplier Official Name Ltd</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">47555222000</cbc:CompanyID>
+                            <cbc:CompanyLegalForm>Partnership</cbc:CompanyLegalForm>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Ronald MacDonald</cbc:Name>
+                            <cbc:Telephone>Mobile 0430123456</cbc:Telephone>
+                            <cbc:ElectronicMail>ronald.macdonald@qualitygoods.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingSupplierParty>
+                      <cac:AccountingCustomerParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">91888222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID schemeID="0151">91888222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Trotters Trading Co Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>100 Queen Street</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Po box 878</cbc:AdditionalStreetName>
+                            <cbc:CityName>Sydney</cbc:CityName>
+                            <cbc:PostalZone>2000</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>91888222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Buyer Official Name</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">91888222000</cbc:CompanyID>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Lisa Johnson</cbc:Name>
+                            <cbc:Telephone>0261234567</cbc:Telephone>
+                            <cbc:ElectronicMail>lj@buyer.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingCustomerParty>
+                      <cac:PaymentTerms>
+                        <cbc:Note>Payment within 30 days</cbc:Note>
+                      </cac:PaymentTerms>
+                      <cac:AllowanceCharge>
+                        <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+                        <cbc:AllowanceChargeReasonCode>SAA</cbc:AllowanceChargeReasonCode>
+                        <cbc:AllowanceChargeReason>Shipping and Handling</cbc:AllowanceChargeReason>
+                        <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
+                        <cbc:Amount currencyID="AUD">50.0</cbc:Amount>
+                        <cbc:BaseAmount currencyID="AUD">50</cbc:BaseAmount>
+                        <cac:TaxCategory>
+                          <cbc:ID>S</cbc:ID>
+                          <cbc:Percent>10</cbc:Percent>
+                          <cac:TaxScheme>
+                            <cbc:ID>GST</cbc:ID>
+                          </cac:TaxScheme>
+                        </cac:TaxCategory>
+                      </cac:AllowanceCharge>
+                      <cac:TaxTotal>
+                        <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                        <cac:TaxSubtotal>
+                          <cbc:TaxableAmount currencyID="AUD">50.0</cbc:TaxableAmount>
+                          <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                          <cac:TaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:TaxCategory>
+                        </cac:TaxSubtotal>
+                      </cac:TaxTotal>
+                      <cac:LegalMonetaryTotal>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cbc:TaxExclusiveAmount currencyID="AUD">1537.4</cbc:TaxExclusiveAmount>
+                        <cbc:TaxInclusiveAmount currencyID="AUD">1542.4</cbc:TaxInclusiveAmount>
+                        <cbc:AllowanceTotalAmount currencyID="AUD">0</cbc:AllowanceTotalAmount>
+                        <cbc:ChargeTotalAmount currencyID="AUD">50.0</cbc:ChargeTotalAmount>
+                        <cbc:PayableAmount currencyID="AUD">1542.4</cbc:PayableAmount>
+                      </cac:LegalMonetaryTotal>
+                      <cac:InvoiceLine>
+                        <cbc:ID>1</cbc:ID>
+                        <cbc:InvoicedQuantity unitCode="EA">10</cbc:InvoicedQuantity>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cac:Item>
+                          <cbc:Description>It's good.</cbc:Description>
+                          <cbc:Name>Milk</cbc:Name>
+                          <cac:ClassifiedTaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:ClassifiedTaxCategory>
+                        </cac:Item>
+                        <cac:Price>
+                          <cbc:PriceAmount currencyID="AUD">148.74</cbc:PriceAmount>
+                        </cac:Price>
+                      </cac:InvoiceLine>
+                    </Invoice>
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - invoice
+    get:
+      summary: List all invoices by unique userId
+      description: ''
+      operationId: ''
+      responses:
+        '200':
+          description: Successful response with an example invoice
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+              examples:
+                invoiceExample:
+                  value: >
+                    <?xml version='1.0' encoding='UTF-8'?>
+
+                    <Invoice
+                    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                      <cbc:CustomizationID>urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0</cbc:CustomizationID>
+                      <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                      <cbc:ID>Invoice01</cbc:ID>
+                      <cbc:IssueDate>2025-03-11</cbc:IssueDate>
+                      <cbc:DueDate>2025-08-30</cbc:DueDate>
+                      <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+                      <cbc:Note>Tax invoice</cbc:Note>
+                      <cbc:DocumentCurrencyCode>AUD</cbc:DocumentCurrencyCode>
+                      <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
+                      <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+                      <cac:AccountingSupplierParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">47555222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID>47555222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Supplier Trading Name Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>Main street 1</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Postbox 123</cbc:AdditionalStreetName>
+                            <cbc:CityName>Harrison</cbc:CityName>
+                            <cbc:PostalZone>2912</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>47555222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Supplier Official Name Ltd</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">47555222000</cbc:CompanyID>
+                            <cbc:CompanyLegalForm>Partnership</cbc:CompanyLegalForm>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Ronald MacDonald</cbc:Name>
+                            <cbc:Telephone>Mobile 0430123456</cbc:Telephone>
+                            <cbc:ElectronicMail>ronald.macdonald@qualitygoods.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingSupplierParty>
+                      <cac:AccountingCustomerParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">91888222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID schemeID="0151">91888222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Trotters Trading Co Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>100 Queen Street</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Po box 878</cbc:AdditionalStreetName>
+                            <cbc:CityName>Sydney</cbc:CityName>
+                            <cbc:PostalZone>2000</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>91888222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Buyer Official Name</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">91888222000</cbc:CompanyID>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Lisa Johnson</cbc:Name>
+                            <cbc:Telephone>0261234567</cbc:Telephone>
+                            <cbc:ElectronicMail>lj@buyer.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingCustomerParty>
+                      <cac:PaymentTerms>
+                        <cbc:Note>Payment within 30 days</cbc:Note>
+                      </cac:PaymentTerms>
+                      <cac:AllowanceCharge>
+                        <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+                        <cbc:AllowanceChargeReasonCode>SAA</cbc:AllowanceChargeReasonCode>
+                        <cbc:AllowanceChargeReason>Shipping and Handling</cbc:AllowanceChargeReason>
+                        <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
+                        <cbc:Amount currencyID="AUD">50.0</cbc:Amount>
+                        <cbc:BaseAmount currencyID="AUD">50</cbc:BaseAmount>
+                        <cac:TaxCategory>
+                          <cbc:ID>S</cbc:ID>
+                          <cbc:Percent>10</cbc:Percent>
+                          <cac:TaxScheme>
+                            <cbc:ID>GST</cbc:ID>
+                          </cac:TaxScheme>
+                        </cac:TaxCategory>
+                      </cac:AllowanceCharge>
+                      <cac:TaxTotal>
+                        <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                        <cac:TaxSubtotal>
+                          <cbc:TaxableAmount currencyID="AUD">50.0</cbc:TaxableAmount>
+                          <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                          <cac:TaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:TaxCategory>
+                        </cac:TaxSubtotal>
+                      </cac:TaxTotal>
+                      <cac:LegalMonetaryTotal>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cbc:TaxExclusiveAmount currencyID="AUD">1537.4</cbc:TaxExclusiveAmount>
+                        <cbc:TaxInclusiveAmount currencyID="AUD">1542.4</cbc:TaxInclusiveAmount>
+                        <cbc:AllowanceTotalAmount currencyID="AUD">0</cbc:AllowanceTotalAmount>
+                        <cbc:ChargeTotalAmount currencyID="AUD">50.0</cbc:ChargeTotalAmount>
+                        <cbc:PayableAmount currencyID="AUD">1542.4</cbc:PayableAmount>
+                      </cac:LegalMonetaryTotal>
+                      <cac:InvoiceLine>
+                        <cbc:ID>1</cbc:ID>
+                        <cbc:InvoicedQuantity unitCode="EA">10</cbc:InvoicedQuantity>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cac:Item>
+                          <cbc:Description>It's good.</cbc:Description>
+                          <cbc:Name>Milk</cbc:Name>
+                          <cac:ClassifiedTaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:ClassifiedTaxCategory>
+                        </cac:Item>
+                        <cac:Price>
+                          <cbc:PriceAmount currencyID="AUD">148.74</cbc:PriceAmount>
+                        </cac:Price>
+                      </cac:InvoiceLine>
+                    </Invoice>
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The user ID does not exist.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - invoice
+  /user/{userId}/invoices/{invoiceId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        description: The unique identifier of the user related to the invoice.
+        schema:
+          type: string
+      - name: invoiceId
+        in: path
+        required: true
+        description: The unique identifier of the invoice to update.
+        schema:
+          type: string
+    summary: update an invoice
+    put:
+      summary: update an invoice
+      description: ''
+      operationId: ''
+      responses:
+        '200':
+          description: Successful response with an example invoice
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+              examples:
+                invoiceExample:
+                  value: >
+                    <?xml version='1.0' encoding='UTF-8'?>
+
+                    <Invoice
+                    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                      <cbc:CustomizationID>urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0</cbc:CustomizationID>
+                      <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                      <cbc:ID>Invoice02</cbc:ID>
+                      <cbc:IssueDate>2025-04-11</cbc:IssueDate>
+                      <cbc:DueDate>2025-09-30</cbc:DueDate>
+                      <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+                      <cbc:Note>Tax invoice</cbc:Note>
+                      <cbc:DocumentCurrencyCode>AUD</cbc:DocumentCurrencyCode>
+                      <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
+                      <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+                      <cac:AccountingSupplierParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">47555222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID>47555222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Supplier Trading Name Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>Main street 1</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Postbox 123</cbc:AdditionalStreetName>
+                            <cbc:CityName>Harrison</cbc:CityName>
+                            <cbc:PostalZone>2912</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>47555222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Supplier Official Name Ltd</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">47555222000</cbc:CompanyID>
+                            <cbc:CompanyLegalForm>Partnership</cbc:CompanyLegalForm>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Ronald MacDonald</cbc:Name>
+                            <cbc:Telephone>Mobile 0430123456</cbc:Telephone>
+                            <cbc:ElectronicMail>ronald.macdonald@qualitygoods.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingSupplierParty>
+                      <cac:AccountingCustomerParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">91888222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID schemeID="0151">91888222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Trotters Trading Co Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>100 Queen Street</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Po box 878</cbc:AdditionalStreetName>
+                            <cbc:CityName>Sydney</cbc:CityName>
+                            <cbc:PostalZone>2000</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>91888222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Buyer Official Name</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">91888222000</cbc:CompanyID>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Lisa Johnson</cbc:Name>
+                            <cbc:Telephone>0261234567</cbc:Telephone>
+                            <cbc:ElectronicMail>lj@buyer.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingCustomerParty>
+                      <cac:PaymentTerms>
+                        <cbc:Note>Payment within 30 days</cbc:Note>
+                      </cac:PaymentTerms>
+                      <cac:AllowanceCharge>
+                        <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+                        <cbc:AllowanceChargeReasonCode>SAA</cbc:AllowanceChargeReasonCode>
+                        <cbc:AllowanceChargeReason>Shipping and Handling</cbc:AllowanceChargeReason>
+                        <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
+                        <cbc:Amount currencyID="AUD">50.0</cbc:Amount>
+                        <cbc:BaseAmount currencyID="AUD">50</cbc:BaseAmount>
+                        <cac:TaxCategory>
+                          <cbc:ID>S</cbc:ID>
+                          <cbc:Percent>10</cbc:Percent>
+                          <cac:TaxScheme>
+                            <cbc:ID>GST</cbc:ID>
+                          </cac:TaxScheme>
+                        </cac:TaxCategory>
+                      </cac:AllowanceCharge>
+                      <cac:TaxTotal>
+                        <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                        <cac:TaxSubtotal>
+                          <cbc:TaxableAmount currencyID="AUD">50.0</cbc:TaxableAmount>
+                          <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                          <cac:TaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:TaxCategory>
+                        </cac:TaxSubtotal>
+                      </cac:TaxTotal>
+                      <cac:LegalMonetaryTotal>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cbc:TaxExclusiveAmount currencyID="AUD">1537.4</cbc:TaxExclusiveAmount>
+                        <cbc:TaxInclusiveAmount currencyID="AUD">1542.4</cbc:TaxInclusiveAmount>
+                        <cbc:AllowanceTotalAmount currencyID="AUD">0</cbc:AllowanceTotalAmount>
+                        <cbc:ChargeTotalAmount currencyID="AUD">50.0</cbc:ChargeTotalAmount>
+                        <cbc:PayableAmount currencyID="AUD">1542.4</cbc:PayableAmount>
+                      </cac:LegalMonetaryTotal>
+                      <cac:InvoiceLine>
+                        <cbc:ID>1</cbc:ID>
+                        <cbc:InvoicedQuantity unitCode="EA">10</cbc:InvoicedQuantity>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cac:Item>
+                          <cbc:Description>It's good.</cbc:Description>
+                          <cbc:Name>Milk</cbc:Name>
+                          <cac:ClassifiedTaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:ClassifiedTaxCategory>
+                        </cac:Item>
+                        <cac:Price>
+                          <cbc:PriceAmount currencyID="AUD">148.74</cbc:PriceAmount>
+                        </cac:Price>
+                      </cac:InvoiceLine>
+                    </Invoice>
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The user ID does not exist.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - invoice
+    get:
+      summary: Retrieve an invoice
+      description: ''
+      operationId: ''
+      responses:
+        '200':
+          description: Successful response with an example invoice
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+              examples:
+                invoiceExample:
+                  value: >
+                    <?xml version='1.0' encoding='UTF-8'?>
+
+                    <Invoice
+                    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+                    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+                      <cbc:CustomizationID>urn:cen.eu:en16931:2017#conformant#urn:fdc:peppol.eu:2017:poacc:billing:international:aunz:3.0</cbc:CustomizationID>
+                      <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+                      <cbc:ID>Invoice02</cbc:ID>
+                      <cbc:IssueDate>2025-04-11</cbc:IssueDate>
+                      <cbc:DueDate>2025-09-30</cbc:DueDate>
+                      <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+                      <cbc:Note>Tax invoice</cbc:Note>
+                      <cbc:DocumentCurrencyCode>AUD</cbc:DocumentCurrencyCode>
+                      <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
+                      <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+                      <cac:AccountingSupplierParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">47555222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID>47555222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Supplier Trading Name Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>Main street 1</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Postbox 123</cbc:AdditionalStreetName>
+                            <cbc:CityName>Harrison</cbc:CityName>
+                            <cbc:PostalZone>2912</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>47555222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Supplier Official Name Ltd</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">47555222000</cbc:CompanyID>
+                            <cbc:CompanyLegalForm>Partnership</cbc:CompanyLegalForm>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Ronald MacDonald</cbc:Name>
+                            <cbc:Telephone>Mobile 0430123456</cbc:Telephone>
+                            <cbc:ElectronicMail>ronald.macdonald@qualitygoods.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingSupplierParty>
+                      <cac:AccountingCustomerParty>
+                        <cac:Party>
+                          <cbc:EndpointID schemeID="0151">91888222000</cbc:EndpointID>
+                          <cac:PartyIdentification>
+                            <cbc:ID schemeID="0151">91888222000</cbc:ID>
+                          </cac:PartyIdentification>
+                          <cac:PartyName>
+                            <cbc:Name>Trotters Trading Co Ltd</cbc:Name>
+                          </cac:PartyName>
+                          <cac:PostalAddress>
+                            <cbc:StreetName>100 Queen Street</cbc:StreetName>
+                            <cbc:AdditionalStreetName>Po box 878</cbc:AdditionalStreetName>
+                            <cbc:CityName>Sydney</cbc:CityName>
+                            <cbc:PostalZone>2000</cbc:PostalZone>
+                            <cac:Country>
+                              <cbc:IdentificationCode>AU</cbc:IdentificationCode>
+                            </cac:Country>
+                          </cac:PostalAddress>
+                          <cac:PartyTaxScheme>
+                            <cbc:CompanyID>91888222000</cbc:CompanyID>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:PartyTaxScheme>
+                          <cac:PartyLegalEntity>
+                            <cbc:RegistrationName>Buyer Official Name</cbc:RegistrationName>
+                            <cbc:CompanyID schemeID="0151">91888222000</cbc:CompanyID>
+                          </cac:PartyLegalEntity>
+                          <cac:Contact>
+                            <cbc:Name>Lisa Johnson</cbc:Name>
+                            <cbc:Telephone>0261234567</cbc:Telephone>
+                            <cbc:ElectronicMail>lj@buyer.com.au</cbc:ElectronicMail>
+                          </cac:Contact>
+                        </cac:Party>
+                      </cac:AccountingCustomerParty>
+                      <cac:PaymentTerms>
+                        <cbc:Note>Payment within 30 days</cbc:Note>
+                      </cac:PaymentTerms>
+                      <cac:AllowanceCharge>
+                        <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+                        <cbc:AllowanceChargeReasonCode>SAA</cbc:AllowanceChargeReasonCode>
+                        <cbc:AllowanceChargeReason>Shipping and Handling</cbc:AllowanceChargeReason>
+                        <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
+                        <cbc:Amount currencyID="AUD">50.0</cbc:Amount>
+                        <cbc:BaseAmount currencyID="AUD">50</cbc:BaseAmount>
+                        <cac:TaxCategory>
+                          <cbc:ID>S</cbc:ID>
+                          <cbc:Percent>10</cbc:Percent>
+                          <cac:TaxScheme>
+                            <cbc:ID>GST</cbc:ID>
+                          </cac:TaxScheme>
+                        </cac:TaxCategory>
+                      </cac:AllowanceCharge>
+                      <cac:TaxTotal>
+                        <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                        <cac:TaxSubtotal>
+                          <cbc:TaxableAmount currencyID="AUD">50.0</cbc:TaxableAmount>
+                          <cbc:TaxAmount currencyID="AUD">5.0</cbc:TaxAmount>
+                          <cac:TaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:TaxCategory>
+                        </cac:TaxSubtotal>
+                      </cac:TaxTotal>
+                      <cac:LegalMonetaryTotal>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cbc:TaxExclusiveAmount currencyID="AUD">1537.4</cbc:TaxExclusiveAmount>
+                        <cbc:TaxInclusiveAmount currencyID="AUD">1542.4</cbc:TaxInclusiveAmount>
+                        <cbc:AllowanceTotalAmount currencyID="AUD">0</cbc:AllowanceTotalAmount>
+                        <cbc:ChargeTotalAmount currencyID="AUD">50.0</cbc:ChargeTotalAmount>
+                        <cbc:PayableAmount currencyID="AUD">1542.4</cbc:PayableAmount>
+                      </cac:LegalMonetaryTotal>
+                      <cac:InvoiceLine>
+                        <cbc:ID>1</cbc:ID>
+                        <cbc:InvoicedQuantity unitCode="EA">10</cbc:InvoicedQuantity>
+                        <cbc:LineExtensionAmount currencyID="AUD">1487.4</cbc:LineExtensionAmount>
+                        <cac:Item>
+                          <cbc:Description>It's good.</cbc:Description>
+                          <cbc:Name>Milk</cbc:Name>
+                          <cac:ClassifiedTaxCategory>
+                            <cbc:ID>S</cbc:ID>
+                            <cbc:Percent>10</cbc:Percent>
+                            <cac:TaxScheme>
+                              <cbc:ID>GST</cbc:ID>
+                            </cac:TaxScheme>
+                          </cac:ClassifiedTaxCategory>
+                        </cac:Item>
+                        <cac:Price>
+                          <cbc:PriceAmount currencyID="AUD">148.74</cbc:PriceAmount>
+                        </cac:Price>
+                      </cac:InvoiceLine>
+                    </Invoice>
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The user ID does not exist.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - invoice
+    delete:
+      summary: Delete an invoice
+      description: ''
+      operationId: ''
+      responses:
+        '200':
+          description: valid.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/succeedResponse'
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The user ID does not exist.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - invoice
+  /user/{userId}/invoices/validate/{invoiceId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        description: The unique identifier of the user to validate.
+        schema:
+          type: string
+      - name: invoiceId
+        in: path
+        required: true
+        description: The unique identifier of the invoice to validate.
+        schema:
+          type: string
+    post:
+      summary: Validate invoice Format
+      description: ''
+      operationId: ''
+      responses:
+        '200':
+          description: valid.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/succeedResponse'
+        '400':
+          description: Invalid format.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The user ID does not exist.
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - invoice
+components:
+  schemas:
+    succeedResponse:
+      type: object
+      xml:
+        name: succeedResponse
+      properties:
+        Message:
+          type: string
+          xml:
+            name: you are successful
+    ErrorResponse:
+      type: object
+      xml:
+        name: ErrorResponse
+      properties:
+        errorMessage:
+          type: string
+          xml:
+            name: ErrorMessage
+    Invoice:
+      type: object
+      properties:
+        CustomizationID:
+          type: string
+        ProfileID:
+          type: string
+        ID:
+          type: string
+        IssueDate:
+          type: string
+        DueDate:
+          type: string
+        InvoiceTypeCode:
+          type: string
+        Note:
+          type: string
+        DocumentCurrencyCode:
+          type: string
+        AccountingCost:
+          type: string
+        BuyerReference:
+          type: string
+        AccountingSupplierParty:
+          type: object
+          properties:
+            Party:
+              type: object
+              properties:
+                EndpointID:
+                  type: object
+                  properties:
+                    schemeID:
+                      type: string
+                    value:
+                      type: string
+                PartyIdentification:
+                  type: object
+                  properties:
+                    ID:
+                      type: string
+                PartyName:
+                  type: object
+                  properties:
+                    Name:
+                      type: string
+                PostalAddress:
+                  type: object
+                  properties:
+                    StreetName:
+                      type: string
+                    AdditionalStreetName:
+                      type: string
+                    CityName:
+                      type: string
+                    PostalZone:
+                      type: string
+                    Country:
+                      type: object
+                      properties:
+                        IdentificationCode:
+                          type: string
+                PartyTaxScheme:
+                  type: object
+                  properties:
+                    CompanyID:
+                      type: string
+                    TaxScheme:
+                      type: object
+                      properties:
+                        ID:
+                          type: string
+                PartyLegalEntity:
+                  type: object
+                  properties:
+                    RegistrationName:
+                      type: string
+                    CompanyID:
+                      type: object
+                      properties:
+                        schemeID:
+                          type: string
+                        value:
+                          type: string
+                    CompanyLegalForm:
+                      type: string
+                Contact:
+                  type: object
+                  properties:
+                    Name:
+                      type: string
+                    Telephone:
+                      type: string
+                    ElectronicMail:
+                      type: string
+        AccountingCustomerParty:
+          type: object
+          properties:
+            Party:
+              type: object
+              properties:
+                EndpointID:
+                  type: object
+                  properties:
+                    schemeID:
+                      type: string
+                    value:
+                      type: string
+                PartyIdentification:
+                  type: object
+                  properties:
+                    ID:
+                      type: string
+                PartyName:
+                  type: object
+                  properties:
+                    Name:
+                      type: string
+                PostalAddress:
+                  type: object
+                  properties:
+                    StreetName:
+                      type: string
+                    AdditionalStreetName:
+                      type: string
+                    CityName:
+                      type: string
+                    PostalZone:
+                      type: string
+                    Country:
+                      type: object
+                      properties:
+                        IdentificationCode:
+                          type: string
+                PartyTaxScheme:
+                  type: object
+                  properties:
+                    CompanyID:
+                      type: string
+                    TaxScheme:
+                      type: object
+                      properties:
+                        ID:
+                          type: string
+                PartyLegalEntity:
+                  type: object
+                  properties:
+                    RegistrationName:
+                      type: string
+                    CompanyID:
+                      type: object
+                      properties:
+                        schemeID:
+                          type: string
+                        value:
+                          type: string
+                Contact:
+                  type: object
+                  properties:
+                    Name:
+                      type: string
+                    Telephone:
+                      type: string
+                    ElectronicMail:
+                      type: string
+        PaymentTerms:
+          type: object
+          properties:
+            Note:
+              type: string
+        AllowanceCharge:
+          type: object
+          properties:
+            ChargeIndicator:
+              type: boolean
+            AllowanceChargeReasonCode:
+              type: string
+            AllowanceChargeReason:
+              type: string
+            MultiplierFactorNumeric:
+              type: integer
+            Amount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            BaseAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            TaxCategory:
+              type: object
+              properties:
+                ID:
+                  type: string
+                Percent:
+                  type: integer
+                TaxScheme:
+                  type: object
+                  properties:
+                    ID:
+                      type: string
+        TaxTotal:
+          type: object
+          properties:
+            TaxAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            TaxSubtotal:
+              type: object
+              properties:
+                TaxableAmount:
+                  type: object
+                  properties:
+                    currencyID:
+                      type: string
+                    value:
+                      type: number
+                TaxAmount:
+                  type: object
+                  properties:
+                    currencyID:
+                      type: string
+                    value:
+                      type: number
+                TaxCategory:
+                  type: object
+                  properties:
+                    ID:
+                      type: string
+                    Percent:
+                      type: integer
+                    TaxScheme:
+                      type: object
+                      properties:
+                        ID:
+                          type: string
+        LegalMonetaryTotal:
+          type: object
+          properties:
+            LineExtensionAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            TaxExclusiveAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            TaxInclusiveAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            AllowanceTotalAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            ChargeTotalAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            PayableAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+        InvoiceLine:
+          type: object
+          properties:
+            InvoicedQuantity:
+              type: object
+              properties:
+                unitCode:
+                  type: string
+                value:
+                  type: integer
+            LineExtensionAmount:
+              type: object
+              properties:
+                currencyID:
+                  type: string
+                value:
+                  type: number
+            Item:
+              type: object
+              properties:
+                Description:
+                  type: string
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+          example: theUser
+        email:
+          type: string
+          example: john@email.com
+        password:
+          type: string
+          example: '12345'
+      xml:
+        name: user
+    UserId:
+      type: object
+      properties:
+        userId(ABN):
+          type: string
+          example: '12345678904'
+      xml:
+        name: userId
+  requestBodies:
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/User'
